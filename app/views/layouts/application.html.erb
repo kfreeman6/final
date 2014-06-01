@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Final</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>File</title>
 
-<%= yield %>
+    <%= stylesheet_link_tag    "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" %>
 
-</body>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>CollectiveChef</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+            <%= link_to "Home", "/", "class" => "item-link"  %> |
+            RANDOM RECIPE PLACEHOLDER |
+            TOP RATED RECIPE PLACEHOLDER
+          </div>
+          <div class="pull-right">
+            <%= link_to "Sign Up", 'users/new' %> |
+            <%= link_to "Sign In", '#' %> |
+            <%= link_to "My Kitchen", '#' %> |
+            <%= link_to "Sign Out", '#' %>
+          </div>
+        </div>
+        <hr>
+      </div>
+
+      <%= yield %>
+
+    <div>
+
+  </body>
 </html>

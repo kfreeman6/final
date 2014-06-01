@@ -1,4 +1,43 @@
 Final::Application.routes.draw do
+
+
+  get  "/" => "recipes/index"
+
+  # Resource: Users
+
+  # --- Create
+  get "/users/new" => 'users#new'
+  post "/users" => 'users#create'
+
+  # --- Read
+  get "/users" => 'users#index'
+  get "/users/:id" => 'users#show'
+
+  # -- Update
+  get "/users/:id/edit" => 'users#edit'
+  patch "/users/:id" => 'users#update'
+
+  # --- Delete
+  delete "/users/:id" => 'users#destroy'
+
+
+# Resource: Kitchens
+
+
+# -- Read -- HOW DO YOU LINK TO THE SIGNED-IN ID??
+get "/mykitchen" => "kitchens#home"
+
+
+
+
+
+# Resource: Recipes
+
+# -- Read
+get "/fullrank" => "recipes#list_all"
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

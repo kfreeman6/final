@@ -1,0 +1,31 @@
+
+<head>
+<style>
+table,th,td
+{border:1px solid black;
+border-collapse:collapse;}
+</style>
+</head>
+
+<body>
+
+<table style="width:500px">
+  <tr>
+    <th>Recipe Title</th>
+    <th>Star Rating</th>
+    <th>Category</th>
+  </tr>
+
+<% all_recipes = Recipe.where("network" => PLACEHOLDER).order("star_rating desc") %>
+<% all_recipes.each do |recipe| %>
+
+   <tr>
+      <td> <%= link_to recipe["name"], "/recipes/#{recipe["id"]}" %> </td>
+      <td> <%= recipe["star_rating"] %> </td>
+      <td>  <%= recipe["category"] %> </td>
+   </tr>
+
+    <% end %>
+
+</table>
+</body>

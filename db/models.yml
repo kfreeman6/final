@@ -1,3 +1,28 @@
+User:
+  - username: string
+  - password: string
+  - name: string
+  - email_address: string
+  - member_since: string
+  - tagline: text
+
+Network:
+  - network: string
+
+Networkuser:
+  - network_id: integer
+  - user_id: integer
+
+Recipe:
+  - recipe_name: string
+  - recipe_desc: text
+  - recipe_photo: string
+  - recipe_added: string
+  - star_rating: integer
+  - notes: text
+  - user_id: integer
+  - category_name: string
+
 # Example table for a typical Book model.
 #
 # Book:
