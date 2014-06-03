@@ -2,7 +2,7 @@
 
 <h1>Edit Recipe for <%= recipe["recipe_name"] %></h1>
 
-<%= form_tag "/recipes#{recipe["id"]}", "method" => "patch" %>
+<%= form_tag "/recipes/#{recipe["id"]}", "method" => "patch" %>
 
   <p>
     <%= label_tag "recipe_name", "What is the name of the recipe?" %>
