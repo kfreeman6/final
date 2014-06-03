@@ -15,7 +15,7 @@ Networkuser:
 
 Recipe:
   - recipe_name: string
-  - recipe_desc: text
+  - recipe_URL: string
   - recipe_photo: string
   - recipe_added: string
   - star_rating: integer

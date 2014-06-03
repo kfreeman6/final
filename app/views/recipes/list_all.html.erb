@@ -20,9 +20,9 @@ border-collapse:collapse;}
 <% all_recipes.each do |recipe| %>
 
    <tr>
-      <td> <%= link_to recipe["name"], "/recipes/#{recipe["id"]}" %> </td>
+      <td> <%= link_to recipe["recipe_name"], "/recipes/#{recipe["id"]}" %> </td>
       <td> <%= recipe["star_rating"] %> </td>
-      <td>  <%= recipe["category"] %> </td>
+      <td>  <%= recipe["category_name"] %> </td>
    </tr>
 
     <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528193634) do
+ActiveRecord::Schema.define(version: 20140602221848) do
 
   create_table "networks", force: true do |t|
     t.string "network"
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 20140528193634) do
 
   create_table "recipes", force: true do |t|
     t.string  "recipe_name"
-    t.text    "recipe_desc"
     t.string  "recipe_photo"
     t.string  "recipe_added"
     t.integer "star_rating"
     t.text    "notes"
     t.integer "user_id"
     t.string  "category_name"
+    t.string  "recipe_URL"
   end
 
   create_table "users", force: true do |t|

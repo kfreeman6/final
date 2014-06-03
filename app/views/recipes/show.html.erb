@@ -1,1 +1,28 @@
-show
+<% recipe_id = params["id"] %>
+<% recipe = Recipe.read(recipe_id) %>
+
+<div class="row">
+
+  <div class="col-md-4">
+    <%= image_tag(recipe["recipe_photo"]) %>
+  </div>
+
+  <div class="col-md-8">
+    <h1><%= recipe["recipe_name"] %></h1>
+
+    <h4> <a href="<%= recipe["recipe_URL"] %>">Recipe Link: Click Here to Get Cooking!</a> </h4>
+
+      <% user = User.find_by("id" => recipe["user_id"]) %>
+      <% if user.present? %>
+
+      <h3><small> Added by <%= user["username"] %>, who gave this recipe <%= recipe["star_rating"] %> stars! </small></h3>
+
+          <p><strong>What <%= user["username"] %> had to say: </strong></p>
+          <p class= "bubble" > <em> " <%= recipe["notes"] %> " </em>  </p>
+
+      <h5> Category: <%= recipe["category_name"] %> </h5>
+      <h5><em><small> Date Added: <%= recipe["recipe_added"] %> </small></em></h5>
+
+    <% end %>
+
+

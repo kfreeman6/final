@@ -1,1 +1,39 @@
-new
+<h1>Add a New Recipe</h1>
+
+<form action="/recipes" method="post">
+
+  <p>
+    <label>What is the name of the recipe?</label>
+    <input type="string" name="recipe_name">
+  </p>
+
+  <p>
+    <label>What type of recipe is this (e.g., Breakfast, Appetizer)?</label>
+    <input type="string" name="category_name">
+  </p>
+
+  <p>
+    <label>Do you have any notes or recommend any changes to this recipe?</label>
+    <input type="text" name="notes">
+  </p>
+
+    <p>
+    <label>What rating would you give the recipe, with 1=would not try again and 5=my new favorite dish?</label>
+    <input type="integer" name="star_rating">
+  </p>
+
+  <p>
+    <label>What is the recipe URL?</label>
+    <input type="string" name="recipe_URL">
+  </p>
+
+  <p>
+    <label>Do you have a link to a photo?</label>
+    <input type="string" name="recipe_photo">
+  </p>
+
+  <input type="submit"> or <a href="/">Cancel</a>
+
+  <!-- CHANGE THE HREF REDIRECT ABOVE AFTER HW SUBMITTED -->
+
+</form>

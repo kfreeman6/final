@@ -1,13 +1,61 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
+
+
+.review {
+  margin-top: 12px;
+  border-top: 2px solid gray;
+  padding-top: 12px;
+}
+
+.header {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+}
+
+.aside { margin-top: 36px; }
+.movie { margin-bottom: 36px; }
+
+img { border: 1px solid #CCC; box-shadow: 10px 10px 10px #999; max-width: 300px;}
+
+
+
+.bubble
+{
+position: relative;
+width: 320px;
+height: 90px;
+text-align: center;
+padding: 6px;
+background: #FFFFFF;
+-webkit-border-radius: 28px;
+-moz-border-radius: 28px;
+border-radius: 28px;
+border: #3A7FD0 solid 4px;
+}
+
+.bubble:after
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 11px 16px 11px 0;
+border-color: transparent #FFFFFF;
+display: block;
+width: 0;
+z-index: 1;
+left: -16px;
+top: 32px;
+}
+
+.bubble:before
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 14px 19px 14px 0;
+border-color: transparent #3A7FD0;
+display: block;
+width: 0;
+z-index: 0;
+left: -23px;
+top: 29px;
+}
