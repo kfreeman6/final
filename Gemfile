@@ -46,7 +46,7 @@ end
 
 gem "quiet_assets", group: "development"
 gem "hirb", group: "development"
-gem "ez", group: "development"
+gem "ez"
 group :development, :test do
   gem "sqlite3"
 end
