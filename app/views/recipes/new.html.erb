@@ -1,36 +1,41 @@
 <h1>Add a New Recipe</h1>
 
+<p><%= @message %></p>
+
+<div class="row">
+  <div class="col-md-5">
+
 <%= form_tag "/recipes", "method" => "post" %>
 
-  <p>
+  <div class="form-group">
     <%= label_tag "recipe_name", "What is the name of the recipe?" %>
     <%= text_field_tag "recipe_name" %>
-  </p>
+  </div>
 
-  <p>
+<div class="form-group">
     <%= label_tag "category_name", "What type of recipe is this (e.g., Breakfast, Appetizer)?" %>
     <%= text_field_tag "category_name" %>
-  </p>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= label_tag "notes", "Do you have any notes or recommend any changes to this recipe?" %>
     <%= text_field_tag "notes" %>
-  </p>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= label_tag "star_rating", "What rating would you give the recipe? (1 to 5, 5=best)" %>
     <%= text_field_tag "star_rating" %>
-  </p>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= label_tag "recipe_URL", "What is the recipe URL?" %>
     <%= text_field_tag "recipe_URL" %>
-  </p>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= label_tag "recipe_photo", "Do you have a link to a photo of the dish?" %>
     <%= text_field_tag "recipe_photo" %>
-  </p>
+  </div>
 
   <%= submit_tag %> or <%= link_to "Cancel", "/" %>
 
