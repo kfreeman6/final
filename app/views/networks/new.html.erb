@@ -1,0 +1,19 @@
+<h1>Create a New Network</h1>
+
+<p><%= @message %></p>
+
+<div class="row">
+  <div class="col-md-5">
+
+    <%= form_tag "/networks", "method" => "post"  %>
+
+      <div class="form-group">
+        <%= label_tag "network", "Choose a Name for Your Network:" %>
+        <%= text_field_tag "network", "", "class" => "form-control" %>
+      </div>
+
+     <%= submit_tag "Create Network", "class" => "btn btn-lg btn-success" %> or <%= link_to "Cancel", "/" %>
+
+    </form>
+</div>
+</div>

@@ -1,7 +1,30 @@
 
-<!-- This page will eventually display only the logged in user's recipes!! -->
+<% the_user = User.read(params["id"]) %>
 
-<h1> Welcome to your recipe book! </h1>
+
+<h2> Welcome to your kitchen, <%= the_user["username"] %>! </h2>
+
+<h5> Here you may browse network suggestions, search the Collective Chef database, or edit your own Cookbook!</h5>
+
+<hr>
+
+<h2><small> Browse Your Networks</small></h2>
+
+<% user = User.find_by("id" => cookies["user_id"]) %>
+<p><em><%= link_to "Click Here to Add or Change Your Network in Your Profile", "/users/#{user["id"]}/edit" %></em></p>
+
+<% network = Network.find_by("id" => user["network_id"]) %>
+
+<p><strong><%= link_to "Browse Your Network's Recipes", "/networks/#{network["id"]}" %> </strong></p>
+
+
+<h2><small> Search Collective Chef </small></h2>
+
+ <p><strong><%= link_to "Browse the Full Collective Chef Database", "/rankall" %></strong></p>
+
+
+
+<h2><small> My Cookbook </small></h2>
 
 <head>
 <style>
@@ -22,8 +45,8 @@ border-collapse:collapse;}
     <th> Delete Recipe </th>
   </tr>
 
-<% all_recipes = Recipe.read.order("star_rating desc") %>
-<% all_recipes.each do |recipe| %>
+<% my_recipes = Recipe.where("user_id" => params["id"]) %>
+<% my_recipes.each do |recipe| %>
 
    <tr>
       <td> <%= link_to recipe["recipe_name"], "/recipes/#{recipe["id"]}" %> </td>

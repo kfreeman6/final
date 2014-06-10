@@ -25,4 +25,38 @@
 
     <% end %>
 
+<% recipe_id = params["id"] %>
+<% recipe = Recipe.read(recipe_id) %>
+
+<hr>
+
+ <h4><strong> The Buzz on This Recipe </strong></h4>
+
+    <% if Comment.where("recipe_id" => recipe["id"]).count == 0 %>
+      <p>Be the first to add a comment!</p>
+    <% end %>
+
+    <%= form_tag "/comments" do %>
+
+      <%= hidden_field_tag "recipe_id", recipe["id"] %>
+
+      <div class="form-group">
+        <%= text_area_tag :comment, "", "class" => "form-control", "placeholder" => "Add your comments or suggestions!", "rows" => 1 %>
+      </div>
+
+      <%= submit_tag "Add Comment", "class" => "btn btn-md btn-primary" %>
+    <% end %>
+
+<h4> <small> What other users are saying: </small> </h4>
+
+    <% Comment.where("recipe_id" => recipe["id"]).each do |comment| %>
+
+        <ul>
+         <li> <%= comment["comment"] %> </li>
+        </ul>
+
+    <% end %>
+
+  </div>
+</div>
 

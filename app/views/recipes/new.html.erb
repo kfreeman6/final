@@ -1,3 +1,5 @@
+ <% user = User.find_by("id" => cookies["user_id"]) %>
+
 <h1>Add a New Recipe</h1>
 
 <p><%= @message %></p>
@@ -5,42 +7,40 @@
 <div class="row">
   <div class="col-md-5">
 
-<%= form_tag "/recipes", "method" => "post" %>
+  <%= form_tag "/recipes", "method" => "post" %>
 
-  <div class="form-group">
-    <%= label_tag "recipe_name", "What is the name of the recipe?" %>
-    <%= text_field_tag "recipe_name" %>
-  </div>
+        <div class="form-group">
+          <%= label_tag "recipe_name", "What is the name of the recipe?" %>
+          <%= text_field_tag "recipe_name", "", "class" => "form-control" %>
+        </div>
 
-<div class="form-group">
-    <%= label_tag "category_name", "What type of recipe is this (e.g., Breakfast, Appetizer)?" %>
-    <%= text_field_tag "category_name" %>
-  </div>
+      <div class="form-group">
+          <%= label_tag "category_name", "What type of recipe is this?" %>
+          <%= select_tag "category_name", options_for_select(['Breakfast', 'Main Dish', 'Appetizer', 'Dessert', 'Snack', 'Beverage', 'Other']), "class" => "form-control" %>
+        </div>
 
-  <div class="form-group">
-    <%= label_tag "notes", "Do you have any notes or recommend any changes to this recipe?" %>
-    <%= text_field_tag "notes" %>
-  </div>
+        <div class="form-group">
+          <%= label_tag "notes", "Do you have any notes or recommend any changes to this recipe?" %>
+          <%= text_field_tag "notes", "", "class" => "form-control" %>
+        </div>
 
-  <div class="form-group">
-    <%= label_tag "star_rating", "What rating would you give the recipe? (1 to 5, 5=best)" %>
-    <%= text_field_tag "star_rating" %>
-  </div>
+        <div class="form-group">
+          <%= label_tag "star_rating", "What rating would you give the recipe? (1 to 5, 5=best)" %>
+          <%= text_field_tag "star_rating", "", "class" => "form-control" %>
+        </div>
 
-  <div class="form-group">
-    <%= label_tag "recipe_URL", "What is the recipe URL?" %>
-    <%= text_field_tag "recipe_URL" %>
-  </div>
+        <div class="form-group">
+          <%= label_tag "recipe_URL", "What is the recipe URL?" %>
+          <%= text_field_tag "recipe_URL", "", "class" => "form-control" %>
+        </div>
 
-  <div class="form-group">
-    <%= label_tag "recipe_photo", "Do you have a link to a photo of the dish?" %>
-    <%= text_field_tag "recipe_photo" %>
-  </div>
+        <div class="form-group">
+          <%= label_tag "recipe_photo", "Please paste in a link to a photo of the dish." %>
+          <%= text_field_tag "recipe_photo", "", "class" => "form-control" %>
+        </div>
 
-  <%= submit_tag %> or <%= link_to "Cancel", "/" %>
+    <%= submit_tag "Add Recipe", "class" => "btn btn-log btn-success" %> or <%= link_to "Cancel", "/users/#{user["id"]}" %>
 
-  <!-- CHANGE THE HREF REDIRECT ABOVE AFTER HW SUBMITTED -->
-
-</form>
-</div>
+   </form>
+ </div>
 </div>

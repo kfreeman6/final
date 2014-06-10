@@ -11,24 +11,25 @@ class UsersController < ApplicationController
                 "name" => params["name"],
                 "email_address" => params["email_address"],
                 "tagline" => params["tagline"],
+                "network_id" => params["network_id"],
                 "member_since" => Date.today)
-    message = "That username is taken. Please create another name."
-    redirect_to "/movies"
+    redirect_to "/login", :notice => "That username is taken. Please create another name."
   else
-    redirect_to "/user/new"
+    redirect_to "/users/new"
   end
   end
 
 
   def update
-    the_user = User.find_by(params["id"])
-    the_user.update("username" => params["username"],
+    user = User.find_by(params["id"])
+    user.update("username" => params["username"],
                 "password" => params["password"],
                 "name" => params["name"],
                 "email_address" => params["email_address"],
-                "tagline" => params["tagline"])
+                "tagline" => params["tagline"],
+                "network_id" => params["network_id"])
 
-    redirect_to '/users/#{the_user["id"]}'
+    redirect_to '/'
   end
 
 end

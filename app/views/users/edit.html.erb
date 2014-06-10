@@ -1,1 +1,44 @@
-edit
+<% user = User.read(params["id"]) %>
+
+<h1>Edit Profile for <%= user["username"] %></h1>
+
+<%= form_tag "/users/#{user["id"]}", "method" => "patch" %>
+
+<div class="form-group">
+        <%= label_tag "username", "Choose a username:" %>
+        <%= text_field_tag "username", user["username"], "class" => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag "password", "Password" %>
+        <%= text_field_tag "password", user["password"], "class" => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag "name", "What's your name?" %>
+        <%= text_field_tag "name", user["name"], "class" => "form-control" %>
+      </div>
+
+            <div class="form-group">
+        <%= label_tag "email_address", "What's your email address?" %>
+        <%= text_field_tag "email_address", user["email_address"], "class" => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag "tagline", "Insert an account tagline:" %>
+        <%= text_field_tag "tagline", user["tagline"], "class" => "form-control" %>
+      </div>
+
+            <div class="form-group">
+        <%= label_tag "network_id", "Join a Network (you may change your network later):" %>
+        <%= select_tag "network_id",
+                       options_from_collection_for_select(Network.all, :id, :network), "class" => "form-control" %>
+      </div>
+
+
+      <%= submit_tag "Update This User", "class" => "btn btn-lg btn-success" %> or <%= link_to "Cancel", "/" %>
+
+    </form>
+</div>
+</div>
+

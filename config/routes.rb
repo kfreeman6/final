@@ -1,9 +1,20 @@
 Final::Application.routes.draw do
 
-get "/" => "users/show"
+# Homepage
+
+ get  "/" => "recipes/index"
+
+get "/rankall" => "recipes/list_all"
+
+get "/mykitchen" => "users/show"
 
 
- ## get  "/" => "recipes/index"  <<CHANGE BACK LATER!! CHANGED FOR HOMEWORK
+  # Sign-In and Sign-Out
+
+  get "/login" => 'sessions#login'
+  post "/authenticate" => 'sessions#authenticate'
+
+  get "/logout" => 'sessions#destroy'
 
   # Resource: Users
 
@@ -23,13 +34,6 @@ get "/" => "users/show"
   delete "/users/:id" => 'users#destroy'
 
 
-# Resource: Kitchens
-
-
-# -- Read -- HOW DO YOU LINK TO THE SIGNED-IN ID??
-get "/mykitchen" => "kitchens#home"
-
-
 
 # Resource: Recipes
 
@@ -47,6 +51,43 @@ get "/mykitchen" => "kitchens#home"
 
   # --- Delete
   delete "/recipes/:id" => 'recipes#destroy'
+
+
+
+  # Resource: Networks
+
+  # --- Create
+  get "/networks/new" => 'networks#new'
+  post "/networks" => 'networks#create'
+
+  # --- Read
+  get "/networks" => 'networks#index'
+  get "/networks/:id" => 'networks#show'
+
+  # -- Update
+  get "/networks/:id/edit" => 'networks#edit'
+  patch "/networks/:id" => 'networks#update'
+
+  # --- Delete
+  delete "/networks/:id" => 'networks#destroy'
+
+
+ # Resource: Comments
+
+  # --- Create
+  get "/comments/new" => 'comments#new'
+  post "/comments" => 'comments#create'
+
+  # --- Read
+  get "/comments" => 'comments#index'
+  get "/comments/:id" => 'comments#show'
+
+  # -- Update
+  get "/comments/:id/edit" => 'comments#edit'
+  patch "/comments/:id" => 'comments#update'
+
+  # --- Delete
+  delete "/comments/:id" => 'comments#destroy'
 
 
 end

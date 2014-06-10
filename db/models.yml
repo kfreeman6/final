@@ -5,13 +5,10 @@ User:
   - email_address: string
   - member_since: string
   - tagline: text
+  - network_id: integer
 
 Network:
   - network: string
-
-Networkuser:
-  - network_id: integer
-  - user_id: integer
 
 Recipe:
   - recipe_name: string
@@ -22,6 +19,10 @@ Recipe:
   - notes: text
   - user_id: integer
   - category_name: string
+
+Comment:
+  - recipe_id: integer
+  - comment: text
 
 # Example table for a typical Book model.
 #

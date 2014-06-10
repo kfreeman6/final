@@ -1,0 +1,12 @@
+<% network = params["id"] %>
+
+<% users = User.where("network_id" =>network["id"]) %>
+
+
+<% users.each do |user| %>
+
+<ul>
+<li><%= user["username"] %></li>
+</ul>
+
+<% end %>

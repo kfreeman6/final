@@ -22,16 +22,27 @@
 
         <div class="row">
           <div class="col-md-8">
-            <%= link_to "Home", "/", "class" => "item-link"  %> | PLACEHOLDER - RANDOM RECIPE
+            <%= link_to "Collective Chef Homepage", "/", "class" => "item-link"  %>
           </div>
           <div class="pull-right">
-            <%= link_to "Sign Up", 'users/new' %> |
-            <%= link_to "Sign In", '#' %> |
-            <%= link_to "My Kitchen", '#' %> |
-            <%= link_to "Sign Out", '#' %>
+          <% user = User.find_by("id" => cookies["user_id"]) %>
+            <% if user != nil %>
+              <%= user["name"] %> |
+            <% end %>
+                <% user = User.find_by("id" => cookies["user_id"]) %>
+                <% unless user != nil %>
+                <%= link_to "Sign Up", '/users/new' %> |
+                <%= link_to "Sign In", '/login' %>
+                <% end %>
+            <% user = User.find_by("id" => cookies["user_id"]) %>
+            <% if user != nil %>
+            <%= link_to "My Kitchen", "/users/#{user["id"]}" %> |
+            <%= link_to "Sign Out", "/logout" %>
+            <% end %>
           </div>
         </div>
         <hr>
+        <h4 class="text-warning"><%= notice %> </h4>
       </div>
 
       <%= yield %>

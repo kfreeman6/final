@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602221848) do
+ActiveRecord::Schema.define(version: 20140610014936) do
+
+  create_table "comments", force: true do |t|
+    t.integer "recipe_id"
+    t.text    "comment"
+  end
 
   create_table "networks", force: true do |t|
     t.string "network"
-  end
-
-  create_table "networkusers", force: true do |t|
-    t.integer "network_id"
-    t.integer "user_id"
   end
 
   create_table "recipes", force: true do |t|
@@ -34,12 +34,13 @@ ActiveRecord::Schema.define(version: 20140602221848) do
   end
 
   create_table "users", force: true do |t|
-    t.string "username"
-    t.string "password"
-    t.string "name"
-    t.string "email_address"
-    t.string "member_since"
-    t.text   "tagline"
+    t.string  "username"
+    t.string  "password"
+    t.string  "name"
+    t.string  "email_address"
+    t.string  "member_since"
+    t.text    "tagline"
+    t.integer "network_id"
   end
 
 end
