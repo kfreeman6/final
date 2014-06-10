@@ -13,9 +13,9 @@ class UsersController < ApplicationController
                 "tagline" => params["tagline"],
                 "network_id" => params["network_id"],
                 "member_since" => Date.today)
-    redirect_to "/login", :notice => "That username is taken. Please create another name."
+    redirect_to "/login", :notice => "Log in using your new credentials!"
   else
-    redirect_to "/users/new"
+    redirect_to "/users/new", :notice => "That username is taken. Please create another name."
   end
   end
 
