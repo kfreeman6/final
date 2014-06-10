@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610014936) do
+ActiveRecord::Schema.define(version: 20140610022740) do
 
   create_table "comments", force: true do |t|
     t.integer "recipe_id"
