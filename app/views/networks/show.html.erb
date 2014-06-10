@@ -1,12 +1,14 @@
-<% network = params["id"] %>
+<% network = Network.find_by("id" => params["id"]) %>
 
-<% users = User.where("network_id" =>network["id"]) %>
+<% users = User.where("network_id" => network["id"]) %>
+
+<% recipes = Recipe.where("user_id" => users["id"]) %>
 
 
-<% users.each do |user| %>
+<% recipes.each do |recipe| %>
 
 <ul>
-<li><%= user["username"] %></li>
+<li><%= recipe["recipe_name"] %></li>
 </ul>
 
 <% end %>
